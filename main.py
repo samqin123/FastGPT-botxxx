@@ -47,7 +47,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 class FastGPT(PluginBase):
     description = "FastGPT知识库问答插件"
     author = "samqin-xiaoyibao社区贡献"
-    version = "1.5.0" # 版本号更新，体现新功能
+    version = "1.3.0" # 版本号更新，体现新功能
     is_ai_platform = True
 
     def __init__(self):
@@ -1096,7 +1096,7 @@ class FastGPT(PluginBase):
                 logger.info(f"Attempting to install '{install_target}' via pip...")
                 try:
                     # 使用 subprocess.run 获取更详细的输出（如果需要）
-                    result = subprocess.run([sys.executable, "-m", "pip", "install", install_target],
+                    result = subprocess.run([sys.executable, "-m", "pip", "install", "-i", "https://pypi.tuna.tsinghua.edu.cn/simple", install_target],
                                             capture_output=True, text=True, check=False) # check=False 手动检查
                     if result.returncode == 0:
                         logger.success(f"Successfully installed '{install_target}'.")
@@ -1126,7 +1126,7 @@ class FastGPT(PluginBase):
                     if pip_command_available[0]:
                         logger.info(f"Installing dependencies from requirements.txt: {requirements}")
                         # 安装 requirements.txt 中的所有包
-                        result_req = subprocess.run([sys.executable, "-m", "pip", "install", *requirements],
+                        result_req = subprocess.run([sys.executable, "-m", "pip", "install", "-i", "https://pypi.tuna.tsinghua.edu.cn/simple", *requirements],
                                                     capture_output=True, text=True, check=False)
                         if result_req.returncode == 0:
                             logger.success("Successfully installed dependencies from requirements.txt.")

@@ -31,7 +31,7 @@ http-proxy = "" # HTTP代理设置，如果需要
 # 图片存储配置
 storage-type = "s3" # 存储类型: "local" 或 "s3" #local代码没有开发，就s3挺好。
 
-# 本地存储配置
+# 本地存储配置 （未开发，请忽略或自行完善）
 image-server-url = "" # 文件服务器基础URL，留空则自动检测
 image-server-port = 9091 # 文件服务器端口
 public-ip = "" # 公网IP或域名，用于远程访问
